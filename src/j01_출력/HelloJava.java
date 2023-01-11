@@ -1,29 +1,41 @@
 package j01_출력;
 
-import java.util.Scanner;
+/**
+ * 
+ * @author ITPS
+ *
+ */
 public class HelloJava {
-    public static void main(String[] args) {
-       Scanner sc = new Scanner(System.in);
-       
-       int cnt = 0;
-       int n = sc.nextInt();
-        int[] arr = new int[n]; //크기가n인 배열 선언 및 할당
-       for(int i = 0; i<arr.length; i++){ // 0~ 배열의 길이 만큼 반복
-           arr[i] = sc.nextInt();   //4 6 3 8 2 1 10   -> 4 6 8 2 10
-           if(arr[i] % 2 ==0){                   //index  0 1 2 3 4
-               cnt++;
-               //System.out.print(arr[i]+" ");
-               for(int j = cnt-1; j>=0; j++){
-                   System.out.print(arr[j]+" ");
-               }
-           }
-            // System.out.print(cnt); //5
-//           for(int j = cnt-1; j>=0; j++){
-//               System.out.print(arr[j]+" ");
-//           }
-        }
+	// 주석: 코드 내부에 메모를 할 때 사용함.
+	// 컴파일 시에 무시됨.
+	// 한 줄 주석
+	// tab 들여쓰기
+	/*
+	  여러줄 주석
+	  1
+	  2
+	  3
+	 */
+	/**
+	 * 클래스, 메소드 등의 정보를 설명하기 위한 주석
+	 */
 
-    }
+	// 프로그램의 시작점
+	public static void main(String[] args) {
+		int[] A = new int[]{0, 3, 0, 2, 3, 0};
+		int[] B = new int[]{1, 2, 1};
+		int i, j;
+		for(i = 1; i < 5; i++) {
+		    int c = 0;
+		    for(j = 0; j < 3; j++) {
+		        c += A[i + j - 1] * B[j];
+		    }
+		    System.out.print(c);
+		}
+		System.out.println();
+
+	}
+	
 }
 
 

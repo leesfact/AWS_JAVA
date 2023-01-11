@@ -1,5 +1,6 @@
 package j12_배열;
 
+
 // 저장소
 public class J12_UserRepository {
 
@@ -39,63 +40,60 @@ public class J12_UserRepository {
 	public J12_User findUserByUsername(String username) {
 		
 		J12_User user = null;
-		for(J12_User u : userTable) {   //userTable 에 등록된 회원 정보가 저장돼 있음
+		
+		for(J12_User u : userTable) {
 			if(u == null) {
 				continue;
 			}
 			if(u.getUsername().equals(username)) {
 				user = u;
-				System.out.println("일치하는 사용자가 있습니다.");
-				break;
-			}else {
-				System.out.println("일치하는 사용자가 없습니다.");
 				break;
 			}
 		}
+		
 		return user;
 	}
 	
-	public J12_User ChangeUserPassword(String password) {
-		J12_User user = null;
-		
-		for(J12_User u: userTable) {
-			if(u == null) {
-				continue;
-			}
-			if(u.getPassword().equals(password)) {
-				user = u;
-				System.out.println("비밀번호가 일치합니다.");
-				System.out.println("새로운 비밀번호를 입력하세요: ");
-				ConfirmPassword(password);
-			}else {
-				System.out.println("비밀번호가 일치하지않습니다.");
-				System.out.println("수정 메뉴로 이동합니다.");
-				break;
-			}
-		}
-		return user;
-	}
-	
-	 public J12_User ConfirmPassword(String password) {
-			J12_User user = null;
-		
-		for(J12_User u: userTable) {
-			if(u == null) {
-				continue;
-			}
-			if(u.getPassword().equals(password)) {
-				user = u;
-//				System.out.println("비밀번호가 일치합니다.");
-//				System.out.println("새로운 비밀번호를 입력하세요: ");
-				//ConfirmPassword();
-			}
-		
-		
-		}
-		return user;
-	}
+	/*
+	 *
+	 * 1. 사용자이름으로 회원 조회
+	 * 
+	 * 2. 회원 정보 수정
+	 * 		수정 할 사용자이름을 입력하세요: aaa
+	 * 
+	 * 		해당 사용자이름은 존재하지 않는 사용자이름입니다.
+	 * 
+	 * 		========<< 수정메뉴 >>========
+	 * 		사용자이름: aaa
+	 * 		==============================
+	 * 		1. 비밀번호 변경
+	 * 		2. 이름 변경
+	 * 		3. 이메일 변경
+	 * 		==============================
+	 * 		b. 뒤로가기
+	 * 
+	 * 		수정 메뉴 선택: 1
+	 * 
+	 * 
+	 * 		========<< 비밀번호 변경 >>========
+	 * 		기존의 비밀번호를 입력하세요: 1234
+	 * 
+	 * 		[비밀번호가 틀리면] 비밀번호가 일치하지 않습니다.(수정 메뉴로 이동)
+	 * 		[비밀번호가 일치하면]
+	 * 		새로운 비밀번호를 입력하세요: 1111
+	 * 		새로운 비밀번호를 확인해주세요: 1234
+	 * 
+	 * 		[비밀번호가 틀리면] 비밀번호 서로 일치하지 않습니다.(수정 메뉴로 이동)
+	 * 		[비밀번호가 일치하면]
+	 * 		비밀번호 변경 완료.
+	 * 		
+	 */
 }
-	
+
+
+
+
+
 
 
 
