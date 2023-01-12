@@ -1,13 +1,9 @@
-package J13_상속.casting2;
+package j13_상속.casting2;
 
 public class Transportation {
-	
-	public void go() {
-		
-	}
-	
-	public void stop() {
-		
-	}
 
+	public void go() {}
+	
+	public void stop() {}
+	
 }

@@ -1,12 +1,11 @@
-package J16_Object;
+package j16_Object;
 
 import java.util.Objects;
 
 public class SubStudent {
 	
-	private String name; //멤버변수 
+	private String name;
 	private int age;
-	
 	
 	public SubStudent(String name, int age) {
 		super();
@@ -14,11 +13,15 @@ public class SubStudent {
 		this.age = age;
 	}
 	
-	
 	@Override
-	public int hashCode() { //???int형?
-		
-		return Objects.hash(name,age);
+	public int hashCode() {
+		return Objects.hash(name, age);
 	}
-
+	
+	
 }
+
+
+
+
+

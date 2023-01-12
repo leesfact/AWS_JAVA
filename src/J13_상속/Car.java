@@ -1,7 +1,6 @@
-package J13_상속;
+package j13_상속;
 
 public class Car {
-	
 	private String company;
 	private String model;
 	private int price;
@@ -34,9 +33,19 @@ public class Car {
 		this.price = price;
 	}
 	
-	
 	public int discountPrice(int percentage) {
-		return price- (price*percentage/100);
+		return price - (price * percentage / 100);
 	}
-
+	
+	
 }
+
+
+
+
+
+
+
+
+
+

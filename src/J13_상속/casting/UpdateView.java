@@ -1,19 +1,15 @@
-package J13_상속.casting;
+package j13_상속.casting;
 
 public class UpdateView extends View {
-	
-	
+
 	@Override
 	public void show() {
-		
 		System.out.println("[ 수정메뉴 ]");
 		System.out.println("1. [수정] 메뉴 1번");
 		System.out.println("2. [수정] 메뉴 2번");
 		System.out.println("exit. 영역 종료");
-		System.out.println("================");
+		System.out.println("===========================");
 	}
-	
-	
 	
 	@Override
 	public boolean menu(String select) {
@@ -30,8 +26,8 @@ public class UpdateView extends View {
 		}else {
 			System.out.println("다시입력하세요.");
 		}
-			return true;
-
+		
+		return true;
+		
 	}
-
 }

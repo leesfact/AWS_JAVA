@@ -1,5 +1,7 @@
 package j01_출력;
 
+import j17_스태틱.싱글톤.KIA;
+
 /**
  * 
  * @author ITPS
@@ -22,18 +24,15 @@ public class HelloJava {
 
 	// 프로그램의 시작점
 	public static void main(String[] args) {
-		int[] A = new int[]{0, 3, 0, 2, 3, 0};
-		int[] B = new int[]{1, 2, 1};
-		int i, j;
-		for(i = 1; i < 5; i++) {
-		    int c = 0;
-		    for(j = 0; j < 3; j++) {
-		        c += A[i + j - 1] * B[j];
-		    }
-		    System.out.print(c);
-		}
+		System.out.println("Hello, Java!!"); //한줄의 문자열을 출력후 끝에 줄바꿈을 해라.
+		System.out.println("이름: 김준일");
+		System.out.println("주소: 부산 동래구 사직동");
+		System.out.println("연락처: 010-9988-1916");
+		System.out.println("수업: AWS기반 공공빅데이터 활용 웹개발자 양성");
+	
 		System.out.println();
-
+		
+		KIA.getInstance().printCompanyName();
 	}
 	
 }

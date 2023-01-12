@@ -1,6 +1,7 @@
 package j09_클래스;
 
 public class J09_StudentMain {
+	
 	public static void main(String[] args) {
 		
 		J09_Student s1 = new J09_Student();

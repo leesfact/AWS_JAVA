@@ -4,6 +4,7 @@ public class Array4 {
 	
 	public static void main(String[] args) {
 		J12_User[] users = new J12_User[3];
+		J12_User[] user1 = null;
 		
 		J12_User[] users2 = new J12_User[] {
 				new J12_User("aaa", "1234", "김종환", "aaa@gmail.com"),
