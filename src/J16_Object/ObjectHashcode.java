@@ -1,6 +1,6 @@
-package j16_Object;
+package J16_Object;
 
-public class ObjectHashCode {
+public class ObjectHashcode {
 	
 	public static void main(String[] args) {
 		Student s1 = new Student("김수현", 31);

@@ -1,4 +1,4 @@
-package j16_Object;
+package J16_Object;
 
 public class ObjectEquals {
 	

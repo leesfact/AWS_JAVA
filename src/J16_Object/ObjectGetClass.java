@@ -1,4 +1,4 @@
-package j16_Object;
+package J16_Object;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

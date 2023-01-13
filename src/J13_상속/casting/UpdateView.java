@@ -1,4 +1,4 @@
-package j13_상속.casting;
+package J13_상속.casting;
 
 public class UpdateView extends View {
 

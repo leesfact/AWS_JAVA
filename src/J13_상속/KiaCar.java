@@ -1,4 +1,4 @@
-package j13_상속;
+package J13_상속;
 
 public class KiaCar extends Car {
 	
