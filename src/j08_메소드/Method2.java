@@ -21,11 +21,11 @@ public class Method2 {
 		System.out.println();
 	}
 	
-	public static String method4() {
-		return "데이터 반환";
+	public static String method4() {  //참조형 클래스 타입
+		return "return data";
 	}
 	
-	public static String method5(int age) {
+	public static String method5(int age) {//void도 리턴타입
 		String ageStr = age + "살";
 		return ageStr;
 	}

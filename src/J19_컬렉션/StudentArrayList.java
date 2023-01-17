@@ -30,7 +30,7 @@ public class StudentArrayList {
 		students.add(new Student("라",4));
 		
 		
-		updateYear(students,"바",10);  //searchName 변수 넣어도 됨
+		updateYear(students,"바",10);  //searchName 변수 넣어도 됨 // 객체 생성 없이 접근 가능
 		System.out.println(students);		
 	}
 }
