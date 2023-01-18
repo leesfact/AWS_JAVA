@@ -7,4 +7,6 @@ public abstract class Transportation {
 	
 	public abstract void stop();
 	
+
+	
 }
