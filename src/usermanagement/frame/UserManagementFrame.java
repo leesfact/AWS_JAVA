@@ -226,7 +226,6 @@ public class UserManagementFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			
-				
 				JsonObject loginUserJson = new JsonObject();
 				loginUserJson.addProperty("usernameAndEmail", usernameField.getText());
 				loginUserJson.addProperty("password", passwordField.getText());
@@ -244,8 +243,7 @@ public class UserManagementFrame extends JFrame {
 				
 				JOptionPane.showInternalMessageDialog(null,response.get("ok"),"ok", JOptionPane.INFORMATION_MESSAGE);
 			
-				
-				
+	
 			}
 		});
 		loginButton.setBackground(new Color(255, 255, 255));
