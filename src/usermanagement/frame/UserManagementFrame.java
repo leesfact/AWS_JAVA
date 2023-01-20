@@ -167,7 +167,6 @@ public class UserManagementFrame extends JFrame {
 				
 				//System.out.println(userJson.toString());
 				
-				
 				UserService userService = UserService.getInstanece(); // userService가 싱글톤이기 때문에
 				
 				Map<String,String> response = userService.register(userJson.toString());
@@ -180,9 +179,7 @@ public class UserManagementFrame extends JFrame {
 				
 				JOptionPane.showMessageDialog(null, response.get("ok"),"ok",JOptionPane.INFORMATION_MESSAGE);
 				mainCard.show(mainPanel,"loginPanel");
-				clearFields(registerFields);
-				
-				
+				clearFields(registerFields);	
 			}
 		});
 		

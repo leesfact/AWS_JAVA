@@ -10,9 +10,9 @@ insert into lecture_mst values(3,'c','9000');
 
 select * from lecture_mst;
 
-insert into instructor_mst values(1,'김준일','서울대');
-insert into instructor_mst values(2,'김준이','부산대');
-insert into instructor_mst values(3,'김준삼','경상대');
+insert into instructor_mst values(1,'김준일','1');
+insert into instructor_mst values(2,'김준이','2');
+insert into instructor_mst values(3,'김준삼','3');
 
 select * from instructor_mst;
 
