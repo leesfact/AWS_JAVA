@@ -7,9 +7,11 @@ public class J12_User {
 	private String name;		// 성명
 	private String email;		// 이메일
 
-	public J12_User() {}		// ctrl + space
+	public J12_User() {
+		// TODO Auto-generated constructor stub
+	}
+	
 
-	// alt + shift + s
 	public J12_User(String username, String password, String name, String email) {
 		super();
 		this.username = username;
@@ -17,6 +19,7 @@ public class J12_User {
 		this.name = name;
 		this.email = email;
 	}
+
 
 	public String getUsername() {
 		return username;
@@ -55,6 +58,8 @@ public class J12_User {
 		return "J12_User [username=" + username + ", password=" + password + ", name=" + name + ", email=" + email
 				+ "]";
 	}
+	
+	
 	
 	
 }

@@ -10,7 +10,7 @@ import lombok.Data;
 @Builder
 //@AllArgsConstructor //builer pattern  필수
 public class User {
-	
+	private int userId;
 	private String username;
 	private String password;
 	private String name;
