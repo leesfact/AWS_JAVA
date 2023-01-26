@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import usermanagement.entity.RoleDtl;
 import usermanagement.entity.User;
 import usermanagement.repository.UserRepository;
 
@@ -20,7 +21,7 @@ public class UserService {
 	
 	private static UserService instance;
 	
-	public static UserService getInstanece() {
+	public static UserService getInstance() {
 		
 		if(instance == null) {
 			instance = new UserService();
@@ -32,7 +33,7 @@ public class UserService {
 	
 	private UserService(){
 		
-		userRepository = UserRepository.getInstance();
+		userRepository = UserRepository.getIntance();
 		gson = new GsonBuilder().setPrettyPrinting().create();
 		
 	}
@@ -43,7 +44,7 @@ public class UserService {
 		
 		Map<String, String> userMap = gson.fromJson(userJson, Map.class);
 		for(Entry<String, String> userEntry : userMap.entrySet()) { //Entry <String, String> : 한 쌍의 Key, Value ;
-			if(userEntry.getValue().isBlank()) { // 비었다면,
+			if(userEntry.getValue().isBlank()) { // 비었다면(공백이면),
 				response.put("error",userEntry.getKey() + "은(는) 공백일 수 없습니다.");
 				return response;
 			}
@@ -78,6 +79,12 @@ public class UserService {
 		System.out.println(user);
 		
 			userRepository.saveUser(user);
+			
+			RoleDtl roleDtl = RoleDtl.builder()
+					.roleId(3)
+					.userId(user.getUserId())
+					.build();
+
 		    response.put("ok", "회원가입 성공.");
 		
 		    return response;

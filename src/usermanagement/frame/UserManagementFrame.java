@@ -167,7 +167,7 @@ public class UserManagementFrame extends JFrame {
 				
 				//System.out.println(userJson.toString());
 				
-				UserService userService = UserService.getInstanece(); // userService가 싱글톤이기 때문에
+				UserService userService = UserService.getInstance(); // userService가 싱글톤이기 때문에
 				
 				Map<String,String> response = userService.register(userJson.toString());
 				
@@ -229,7 +229,7 @@ public class UserManagementFrame extends JFrame {
 				System.out.println(loginUserJson.toString());
 				//System.out.println("===================================");
 				
-				UserService userService = UserService.getInstanece(); // userService가 싱글톤이기 때문에
+				UserService userService = UserService.getInstance(); // userService가 싱글톤이기 때문에
 				
 				Map<String,String> response = userService.authorize(loginUserJson.toString()); 
 				

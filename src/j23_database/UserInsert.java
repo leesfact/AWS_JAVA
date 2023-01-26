@@ -50,7 +50,7 @@ public class UserInsert {
 			 
 			 if(resultSet.next()) {
 				 System.out.println("이번에 만들어진 user_id Key값: " + resultSet.getInt(1));
-				 user.setUserId(resultSet.getInt(1));
+				 user.setUserId(resultSet.getInt(1)); //set
 			 }
 			 
 			 
@@ -60,7 +60,7 @@ public class UserInsert {
 			e.printStackTrace();
 		} 
 		
-		return successCount;
+		return successCount;  // 건수만 리턴
 	}
 	
 	public int saveRoles(Map<String,Object> map) {
@@ -76,7 +76,7 @@ public class UserInsert {
 		try { // why??? 
 			 connection = pool.getConnection();  //workbench 에 접속
 			 
-			 List<Integer> roles = (List<Integer>) map.get("roles");
+			 List<Integer> roles = (List<Integer>) map.get("roles"); // map은 key값이 명확
 			 User user = (User)map.get("user");
 			 
 			 sql = "insert into role_dtl\r\n"
@@ -89,7 +89,7 @@ public class UserInsert {
 					}
 				}
 			 
-			 preparedStatement = connection.prepareStatement(sql);
+			 preparedStatement = connection.prepareStatement(sql); //prepareStatement엔 완성된 query문을 전달해야함
 			 
 			 for(int i = 0; i<roles.size();i++) {
 			 preparedStatement.setInt((i*2) + 1, roles.get(i) );  
@@ -111,10 +111,10 @@ public class UserInsert {
 		UserInsert userInsert = new UserInsert(); //saveUser를 쓰기위한 객체 생성
 		
 		User user = User.builder()
-				    .username("qqq")
+				    .username("aaa")
 				    .password("1234") 
-				    .name("qqq")
-				    .email("qqq@gmail.com")
+				    .name("aaa")
+				    .email("aaa@gmail.com")
 				    .build();
 		int successCount = userInsert.saveUser(user);
 		
@@ -122,13 +122,25 @@ public class UserInsert {
 		System.out.println(user); 
 		
 		/*==============================================================*/
+		/*
+		 * 권한을 어떻게 주는지 보여주는 예
+		 */
+	
 		List<Integer> roleIdList = new ArrayList<>();
-		roleIdList.add(15);
+		roleIdList.add(15); // 숫자가 무엇이든 중요치않음
 		roleIdList.add(16);
 		
 		Map<String,Object> map = new HashMap<>();
 		map.put("user", user);
 		map.put("roles", roleIdList);
+		
+		/*
+		 * 데이터를 묶어두는 용도 
+		 * List - 반복 용도
+		 * 
+		 * Map - 꼬리표를 달아놓는다... key를 선택하면 value가 따라나오는... 임시 entity(실재) 객체
+		 * 
+		 */
 		
 		
 		System.out.println(map);
