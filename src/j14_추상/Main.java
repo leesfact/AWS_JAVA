@@ -7,6 +7,11 @@ public class Main {
 		
 		Transportation tp2 = new Taxi();
 		
+		
+		Subway subway = new Subway();
+		
+		subway.checkRoute();
+		
 		tp.go();
 		tp.stop();
 		tp2.go();
