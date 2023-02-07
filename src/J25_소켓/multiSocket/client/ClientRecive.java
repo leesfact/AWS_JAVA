@@ -1,4 +1,4 @@
-package J25_소켓.multiSocket.client;
+package j25_소켓.multiSocket.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,10 +9,9 @@ import java.net.Socket;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ClientRecive extends Thread{
-	
+public class ClientRecive extends Thread {
+
 	private final Socket socket;
-	
 	
 	@Override
 	public void run() {
@@ -21,13 +20,22 @@ public class ClientRecive extends Thread{
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
 			while(true) {
-				if(Client.name != null) {
-				System.out.println(reader.readLine());
-				}
+				System.out.println(reader.readLine());		
 			}
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
