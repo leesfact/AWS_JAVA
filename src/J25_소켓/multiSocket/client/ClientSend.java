@@ -25,6 +25,8 @@ public class ClientSend extends Thread {
 			while(true) {
 				
 				if(Client.name == null) {
+					Client.name = scanner.nextLine();
+					
 					System.out.println("이름 입력: ");
 					writer.println(scanner.nextLine());
 					continue;
