@@ -1,4 +1,4 @@
-package j25_소켓;
+package J25_소켓;
 
 import java.io.IOException;
 import java.io.OutputStream;

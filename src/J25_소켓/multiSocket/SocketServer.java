@@ -1,4 +1,4 @@
-package j25_소켓.multiSocket;
+package J25_소켓.multiSocket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,11 +14,15 @@ public class SocketServer extends Thread {
 	
 	public static List<SocketServer> clientList = new ArrayList<>();
 	private Socket socket;
+	private InputStream inputStream;
+	private OutputStream outputStream;
+	private static int autoIncrement = 1;
 	private String name;
 	
 	public SocketServer(Socket socket) {
-		this.socket = socket;
-		clientList.add(this);
+		this.socket = socket; // 해당 클라이언트랑 연결
+		name = "user" + autoIncrement++ ;
+		clientList.add(this); //List에 SocketServer들을 담는다
 	}
 	
 	@Override
@@ -27,45 +31,41 @@ public class SocketServer extends Thread {
 		System.out.println("IP: " + socket.getInetAddress());
 		
 		try {
-			InputStream inputStream = socket.getInputStream();
+			inputStream = socket.getInputStream();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 			
-			OutputStream outputStream = socket.getOutputStream();
-			PrintWriter writer = new PrintWriter(outputStream, true);
+			sendToAll(name + "님이 접속하였습니다."); 
 			
-			writer.println("서버 접속 성공!");
-			writer.println("사용자 이름을 입력하세요!");
-			
-			String messase = null;
-			boolean loginFlag = false;
-			while((messase = reader.readLine()) != null) {
-				if(name == null) {
-					name = messase;
-					System.out.println("\n서버에 " + name + "님이 접속하였습니다.");
+			while(true) {
+				String message = reader.readLine(); // 메세지가 들어올때까지 기다린다
+				if(message == null) {  // 공백이 들어가도 전송이 된다
+					break; // while 문을 빠져 나감
 				}
-				
-				for(SocketServer s : clientList) {
-					try {
-						outputStream = s.socket.getOutputStream();
-						writer = new PrintWriter(outputStream, true);
-						if(!loginFlag) {
-							writer.println("\n" + s.name + "님이 접속하였습니다.");
-							loginFlag = true;
-							continue;
-						}
-						writer.println("\n" + s.name + ": " + messase);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
+				sendToAll(message);
 			}
-			
-			
-			
+	
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				inputStream.close(); // Stream ex) 서버와 클라이언트를 만나게 해주는 통로 같은 역할
+				outputStream.close();
+				socket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
+	private void sendToAll(String message) throws IOException {
+		for(SocketServer socketServer : clientList) {
+			outputStream = socketServer.socket.getOutputStream();
+			PrintWriter writer = new PrintWriter(outputStream,true);
+			writer.println(name + ": "+ message); // 여기서 name은 자기 자신
+		}
+	}
+	
 }
 
 

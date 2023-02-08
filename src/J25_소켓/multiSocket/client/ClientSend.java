@@ -1,4 +1,4 @@
-package j25_소켓.multiSocket.client;
+package J25_소켓.multiSocket.client;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -23,11 +23,6 @@ public class ClientSend extends Thread {
 			Scanner scanner = new Scanner(System.in);
 			
 			while(true) {
-				if(Client.name == null) {
-					Client.name = scanner.nextLine();
-					writer.println(Client.name);
-					continue;
-				}
 				writer.println(scanner.nextLine());
 			}
 		} catch (IOException e) {

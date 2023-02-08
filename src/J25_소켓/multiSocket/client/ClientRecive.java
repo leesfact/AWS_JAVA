@@ -1,4 +1,4 @@
-package j25_소켓.multiSocket.client;
+package J25_소켓.multiSocket.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
