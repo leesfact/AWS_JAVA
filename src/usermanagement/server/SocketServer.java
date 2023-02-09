@@ -20,7 +20,7 @@ import usermanagement.server.controller.AccountController;
 
 public class SocketServer extends Thread {
 	
-	private static List<SocketServer> socketServerList = new ArrayList<>();
+	private static List<SocketServer> socketServerList = new ArrayList<>(); 
 	
 	// 멤버변수
 	private Socket socket;
@@ -38,9 +38,9 @@ public class SocketServer extends Thread {
 	public void run() {
 		
 		try {
-			reciveRequest();
-		} catch (IOException e) {
-			System.out.println(socket.getInetAddress() + ":"+socket.getPort() + " 클라이언트의 접속이 끊어졌습니다.");
+			reciveRequest(); //요청을 받는 녀석
+		} catch (IOException e) {  // 예외가 발생했으면 reun 메서드 종료
+			System.out.println(socket.getInetAddress() + ":" + socket.getPort() + " 클라이언트의 접속이 끊어졌습니다.");
 		}
 		
 	}
@@ -51,7 +51,7 @@ public class SocketServer extends Thread {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 		
 		while(true) {
-			String request = reader.readLine();
+			String request = reader.readLine(); //클라이언트가 데이터를 보내면, 
 			if(request == null) {
 				throw new ConnectException();
 			}
@@ -65,9 +65,9 @@ public class SocketServer extends Thread {
 		RequestDto<?> requestDto = gson.fromJson(request, RequestDto.class);
 		String resource = requestDto.getResource();
 		switch(resource) {
-			case "register":
-				User user = gson.fromJson((String)requestDto.getBody(), User.class);//String으로 Downcasting
-				ResponseDto<?> responseDto = AccountController.getInstance().register(user);
+			case "register": // 등록이면
+				ResponseDto<?> responseDto = 
+					AccountController.getInstance().register((String)requestDto.getBody());
 				sendResponse(responseDto);
 				break;
 			default:
