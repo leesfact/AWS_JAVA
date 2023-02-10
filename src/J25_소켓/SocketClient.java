@@ -1,4 +1,4 @@
-package J25_소켓;
+package j25_소켓;
 
 import java.io.BufferedReader;
 import java.io.IOException;

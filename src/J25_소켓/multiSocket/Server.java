@@ -1,4 +1,4 @@
-package J25_소켓.multiSocket;
+package j25_소켓.multiSocket;
 
 import java.io.IOException;
 import java.net.ServerSocket;
