@@ -93,7 +93,7 @@ public class ServerApplication {
 				while(true) {
 					Socket socket = serverSocket.accept(); // 클라이언트의 접속을 기다리는 녀석 // 연결버튼 누를때 까지
 					
-					ConnectedSocket connectedSocket = new ConnectedSocket(socket);
+					ConnectedSocket connectedSocket = new ConnectedSocket(socket); //쓰레드
 					connectedSocket.start();
 				
 				}
