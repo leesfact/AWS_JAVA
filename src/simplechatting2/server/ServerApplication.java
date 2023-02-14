@@ -67,6 +67,12 @@ class ConnectedSocket extends Thread{
 							String message = messageReqDto.getFromUser() + "[전체]: " + messageReqDto.getMessageValue();
 							MessageRespDto messageRespDto = new MessageRespDto(message);
 							sendToAll(requestDto.getResource(), "ok", gson.toJson(messageRespDto));
+						}else {
+							String message = messageReqDto.getFromUser() + "[" + messageReqDto.getToUser() + "]: " + messageReqDto.getMessageValue();
+							MessageRespDto messageRespDto = new MessageRespDto(message);
+							sendToUser(requestDto.getResource(), "ok", gson.toJson(messageRespDto),messageReqDto.getToUser());
+							
+							
 						}
 					
 						break;
@@ -89,6 +95,20 @@ class ConnectedSocket extends Thread{
 			
 			out.println(gson.toJson(responseDto));
 				
+		}
+	}
+	
+	private void sendToUser(String resouce, String status, String body, String toUser) throws IOException {
+		
+		ResponseDto responseDto = new ResponseDto(resouce, status, body);
+		for(ConnectedSocket connectedSocket : socketList) {
+			if(connectedSocket.getUsername().equals(toUser)||connectedSocket.getUsername().equals(username)) {
+				OutputStream outputStream = connectedSocket.getSocket().getOutputStream();
+				PrintWriter out = new PrintWriter(outputStream,true);
+				
+				out.println(gson.toJson(responseDto));
+				
+			}
 		}
 	}
 	
