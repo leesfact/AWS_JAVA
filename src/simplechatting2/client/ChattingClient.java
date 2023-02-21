@@ -216,6 +216,7 @@ public class ChattingClient extends JFrame {
 						new MessageReqDto(toUser, username, messageInput.getText());
 				
 				sendRequest("sendMessage", gson.toJson(messageReqDto));
+				System.out.println(messageReqDto);
 				messageInput.setText("");
 				
 		  }
