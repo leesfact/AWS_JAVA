@@ -63,7 +63,7 @@ class ConnectedSocket extends Thread{
 						
 						MessageReqDto messageReqDto = gson.fromJson(requestDto.getBody(), MessageReqDto.class);
 						
-						if(messageReqDto.getToUser().equalsIgnoreCase("all")) {
+						if(messageReqDto.getToUser().equalsIgnoreCase("aall")) {
 							String message = messageReqDto.getFromUser() + "[전체]: " + messageReqDto.getMessageValue();
 							MessageRespDto messageRespDto = new MessageRespDto(message);
 							sendToAll(requestDto.getResource(), "ok", gson.toJson(messageRespDto));
