@@ -1,0 +1,27 @@
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label::after {
+    content: " ";
+    display:flex;
+    justify-content: center;
+    border: 1px solid #dbdbdb;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+    color: white;
+    line-height: 39px;
+}
+
+input[type=checkbox]:checked + label::after {
+    content: "●";
+    color: indianred;
+
+}
+
+
+input[type=checkbox] + label:nth-child(6)::after{
+    border: 1px soild red;
+}
