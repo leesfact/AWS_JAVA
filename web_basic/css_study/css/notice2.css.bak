@@ -75,7 +75,7 @@ a {
     color: #1d1d1f;
 }
 
-.adv-content {
+.ad-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,7 +200,7 @@ a {
     width: 980px;
 }
 
-.product-container {   
+.product-container {   /* 여기 오타인 */
     margin-left: 70px;
     /* border: 1px solid #dbdbdb; */
     width: 280px;
@@ -271,18 +271,18 @@ a {
 }
 
 .c1 {
-    background-color: #2E3641;
+    background-color: #2e3641;
 }
 
 .c2 {
-    background-color: #F0E5D3;
+    background-color:#F0E5D3;
 }
 
 .c3 {
-    background-color: #7D7E80;
+    background-color: #7d7e80;
 }
 .c4 {
-    background-color: #E3E4E6;
+    background-color: #e3e4e6;
 }
 
 .product-detail-info {
@@ -330,7 +330,7 @@ a {
 
 .product-price-monthly-plan {
     padding-top: 6px;
-    font-size: 14px;
+    font-size:  14px;
     color: #86868b;
 }
 
