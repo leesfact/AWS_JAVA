@@ -10,18 +10,16 @@ class TodoEvent {
     }
 
 
-
-
     addEventAddTodoClick() {
         const addTodoButton = document.querySelector(".add-todo-button");
         addTodoButton.onclick = () => {
             TodoService.getInstance().addTodo();
             const todoInput = document.querySelector(".todo-input");
-            todoInput.value ="";
+            todoInput.value = "";
         }
     }
 
-    addEventAddTotoKeyUp() {
+    addEventAddTodoKeyUp() {
         const todoInput = document.querySelector(".todo-input");
         todoInput.onkeyup = () => {
             if(window.event.keyCode == 13) {
@@ -31,6 +29,23 @@ class TodoEvent {
         }
     }
 
+    addEventRemoveTodoClick() {
+        const removeButtons = document.querySelectorAll(".content-footer .remove-button");
+        removeButtons.forEach((removeButton,index) => {
+            removeButton.onclick = () => {
+                ModalService.getInstance().showRemoveModal(index);
+            }
+        });
+    }
+
+    addEventModifyTodoClick() {
+        const modifyButtons = document.querySelectorAll(".content-footer .modify-button");
+        modifyButtons.forEach((modifyButton,index) => {
+            modifyButton.onclick = () => {
+                ModalService.getInstance().showModifyModal(index);
+            }
+        });
+    }
 }
 
 
@@ -47,13 +62,20 @@ class TodoService {
     todoList = null;
 
     constructor() {
-        if(localStorage.getItem("todoList") == null ){
+        if(localStorage.getItem("todoList") == null) {
             this.todoList = new Array();
-        }else{
+        }else {
             this.todoList = JSON.parse(localStorage.getItem("todoList"));
         }
         this.loadTodoList();
     }
+
+    updateLocalStorage() {
+        localStorage.setItem("todoList", JSON.stringify(this.todoList));
+        this.loadTodoList();
+     
+    }
+
 
     addTodo() {
         const todoInput = document.querySelector(".todo-input");
@@ -74,7 +96,7 @@ class TodoService {
                 : day == 2 ? "화"
                 : day == 3 ? "수"
                 : day == 4 ? "목"
-                : day == 5 ? "금" : "토"       
+                : day == 5 ? "금" : "토";       
         }
         
 
@@ -85,14 +107,13 @@ class TodoService {
             todoContent: todoInput.value
         }
         this.todoList.push(todoObj);
-        localStorage.setItem("todoList",JSON.stringify(this.todoList));
-        this.loadTodoList();
+		this.updateLocalStorage();
     }
 
     loadTodoList() {
         const todoContentList = document.querySelector(".todo-content-list");
         todoContentList.innerHTML = ``;
-        this.todoList.forEach(todoObj =>{
+        this.todoList.forEach(todoObj => {
             todoContentList.innerHTML += `
                 <li class="content-container">
                     <div class="content-header">
@@ -114,6 +135,9 @@ class TodoService {
             `;
 
         });
+
+        TodoEvent.getInstance().addEventModifyTodoClick();
+        TodoEvent.getInstance().addEventRemoveTodoClick();
     }
 
 }
