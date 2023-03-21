@@ -5,7 +5,7 @@
 
 .main {
     width: 560px;
-    height: 600px;
+    height: 605px;
     padding: 30px;
     margin: 80px auto;
     box-sizing: border-box;
@@ -107,7 +107,7 @@
 /* 경고창 */
 .notice {
     color: rgb(201, 65, 65);
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .list-container {
@@ -120,6 +120,13 @@
 
 .list-container::-webkit-scrollbar { 
     display: none;
+}
+
+.list {
+    width: 100%;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
 }
 
 input[type="checkbox"] {
@@ -149,7 +156,7 @@ input[type="checkbox"]:checked {
     background-color: transparent;
     outline: 0;
     font-size: 20px;
-    color: rgb(163, 155, 155);
+    color: rgb(63, 61, 61);
     cursor: pointer;
 }
 
@@ -163,20 +170,20 @@ input[type="checkbox"]:checked {
 }
 
 .all-select-label {
-    color: rgb(119 112 112);
-    text-shadow: 1px 1px 1px ghostwhite;
+    color: rgb(63, 61, 61);
+    text-shadow: 1px 1px 1px gray;
 }
 
 .all-select-label:hover {
-    color: rgb(75, 74, 74);
+    color: rgb(26, 25, 25);
 }
 
 .all-delete {
-    color: rgb(119 112 112);
-    text-shadow: 1px 1px 1px ghostwhite;
+    color: rgb(75, 74, 74);
+    text-shadow: 1px 1px 1px gray;
     text-decoration: none;
 }
 
 .all-delete:hover {
-    color: rgb(75, 74, 74);
+    color: rgb(26, 25, 25);
 }
