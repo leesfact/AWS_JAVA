@@ -1,27 +1,33 @@
 package 프로그래머스;
 
+import java.util.ArrayList;
+
 public class TossBall {
 	
 	 public static int solution(int[] numbers, int k) {
-	        int answer = 0;
+	       int answer = 0;
+	       ArrayList<Integer> oddList = new ArrayList<>();
+	       ArrayList<Integer> evenList = new ArrayList<>();
+	       int index = k % numbers.length;
+	       int jump = 0;
+	       for(int i = 0; i < numbers.length; i++) {
+		       if(numbers.length / 2 == 0) { //even
+		    	   evenList.add(numbers[index + jump]);
+		       }else { //odd
+		    	   oddList.add(numbers[index + jump]);
+		       }
+	       }
 	       
-	        for(int i = 1; i <= k; i++) {
-	        	System.out.println(i+"번째");
-	        	for(int j = 0; j < numbers.length; j +=2) {
-	        		System.out.println(numbers[j]);
-	        		answer = numbers[j];
-	        	}
-	        	
-	        }
+	        System.out.println(evenList);
+	        System.out.println(oddList);
 	        
-	        System.out.println(answer);
 	        return answer;
 	    }
 	 
-	 
+	 	
 	 public static void main(String[] args) {
-		int [] numbers =  {1, 2, 3, 4, 5, 6};
-		solution(numbers, 5);
+		int [] numbers =  {1, 2, 3};
+		solution(numbers, 2);
 	}
 
 }
